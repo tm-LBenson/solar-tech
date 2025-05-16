@@ -1,0 +1,165 @@
+// Default reset
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// color palette
+$base: #002b36;
+$highlight: #268bd2;
+$soft: #073642;
+$light: #fdf6e3;
+$shadow: #00000076;
+
+$md: 48rem;
+$lg: 64rem;
+
+// Typography
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  color: $light;
+  background: $base;
+}
+
+// Get footer to the bottom
+html,
+#root,
+body {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+//? -------------------Component Styles-------------------
+
+// Nav Styles
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: $soft;
+  &__logo {
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+  &__links {
+    display: none;
+    gap: 1.5rem;
+    a {
+      color: $light;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      &:hover {
+        color: $highlight;
+        text-decoration: underline;
+      }
+    }
+  }
+  &__cta {
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    color: $light;
+    background: $highlight;
+    cursor: pointer;
+  }
+}
+
+.nav--mobile {
+  display: none;
+}
+
+@media (width > $md) {
+  .nav__links {
+    display: flex;
+  }
+
+}
+
+
+// Hero Styles
+.hero {
+  background: linear-gradient(135deg, $soft 0%, $base 100%);
+  text-align: center;
+  padding: 6rem 1rem;
+  &__title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+  }
+  &__subtitle {
+    // Uncomment to make limited to 2 lines
+    // max-width: 25rem;
+    margin: 0 auto 2rem;
+  }
+  &__cta {
+    background: $highlight;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 1px 1px 15px $shadow;
+    }
+  }
+}
+//Pricing styles
+
+.pricing {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin: 2rem auto;
+  max-width: 70rem;
+  padding: 4rem 1rem;
+}
+
+.card {
+  background: $soft;
+  transition: all 0.2s ease;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 1px 1px 15px $shadow;
+  }
+  padding: 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  &__price {
+    font-size: 2rem;
+    margin: 1rem 0;
+  }
+  &__btn {
+    background: $highlight;
+    border: none;
+    padding: 0.5rem 1.25rem;
+    border-radius: 0.25rem;
+    color: $light;
+    cursor: pointer;
+  }
+}
+
+@media (width > $md) {
+  .pricing {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// Footer styles
+.footer {
+  background: $soft;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.8rem;
+}
