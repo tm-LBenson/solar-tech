@@ -1,18 +1,21 @@
-import Footer from "./components/Footer";
-import Hero from "./components/Hero";
-import NavBar from "./components/NavBar";
-import Pricing from './components/Pricing';
+import { Route, Routes } from "react-router-dom";
 import "./main.scss";
+import Home from "./pages/homepage/Home";
+import About from "./pages/about/About";
 
 function App() {
   return (
     <>
-      <NavBar />
-      <main>
-        <Hero />
-        <Pricing/>
-      </main>
-      <Footer />
+      <Routes>
+        <Route
+          path="/"
+          element={<Home />}
+        />
+        <Route
+          path="/about"
+          element={<About />}
+        />
+      </Routes>
     </>
   );
 }
